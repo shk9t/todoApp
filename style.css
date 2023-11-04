@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    margin: 0 auto;
+    text-align: center;
+}
+.mainBlock{
+    border: 1px solid rgb(205, 195, 195);
+    margin: 0 auto;
+    width: 500px;
+    margin-top: 10px;
+    min-height: 300px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+input{
+    text-align: center;
+    font-size: large;
+    font-style: italic;
+    border: 1px solid black;
+    margin-left: 5px;
+    padding: 5px;
+}
+.enterText{
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+.helpButtons{
+    margin-top: auto;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+ul{
+    list-style-type: none;
+}
+li{
+    font-size: large;
+}
+.completeAll{
+    padding: 2px;
+}
+.completeAll:hover{
+    cursor: grab;
+    outline: 1px solid grey;
+    flex-basis: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
