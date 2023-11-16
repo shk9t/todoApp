@@ -3,6 +3,7 @@ const input = document.getElementById('enter')
 const All = document.querySelector('.all')
 const clearComplete = document.querySelector('.clearComplete')
 const completeAll = document.querySelector('.completeAll')
+const important = document.querySelector('.important')
 const qtTask = document.querySelector('p')
 
 let todoArr = []
@@ -13,7 +14,7 @@ if(localStorage.getItem('todo')){
 }
 
 input.addEventListener('keydown', e => {
-  if(e.keyCode == 13){ //исправить keycode
+  if(e.keyCode == 13 && input.value.trim() != ''){ //исправить keycode
     const obj = {
       todo: input.value,
       checked: false,
@@ -55,21 +56,34 @@ todo.addEventListener('change', event => {
   })
 })
 
+let switcher = true;
 completeAll.addEventListener('click', () => {
-  todoArr.forEach(item => {
-    item.checked = !item.checked
+    if(switcher){
+      todoArr.forEach(item => item.checked = true)
+      completeAll.classList.add('activeComplete')
+      //item.todo = 
+      switcher = !switcher
+    }else{
+      todoArr.forEach(item => item.checked = false)
+      completeAll.classList.remove('activeComplete')
+      switcher = !switcher
+    }
     localStorage.setItem('todo', JSON.stringify(todoArr))
     displayMessage()
-  })
 })
 
 clearComplete.addEventListener('click', () => {
   todoArr.forEach((item, index) => {
     if(item.checked == true){
-      todoArr.splice(index, 1)
-      displayMessage()
-      localStorage.setItem('todo', JSON.stringify(todoArr))
-      console.log('kkkkkkk')
+      
     }
   })
+  localStorage.setItem('todo', JSON.stringify(todoArr))
+  displayMessage()
 })
+
+// important.addEventListener('click', () => {
+  // todo.forEach(item => {
+    // if
+  // })
+// })
